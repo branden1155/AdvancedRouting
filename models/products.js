@@ -1,7 +1,7 @@
 //Creates or holds items in an Array for the product List, (has a let declaration, because array changes.)
 let products = [
-    {id: "1", "slug": "nike-shoe", "name": "Nike Shoe"},
-    {id: "2", "slug": "nike-Test-Shoe", "name": "Nike Shoe Testing"}
+    {id: "1", "slug": "Running Shoes", "name": "Nike", "price": 56.25},
+    {id: "2", "slug": "Skate Shoes", "name": "Vans", "price": 74.98}
 ]
 
 //Returns all Products
@@ -14,8 +14,9 @@ const find = (id) => {
 };
 //Creates a Product through forms, this will be done later in the month.
 const create = (product) => {
-    products.push(product)
-    return products
+    const id = Number(products[products.length - 1].id) + 1 + ""
+    products.push({ id, ...product })
+    return products[products.length - 1]
 };
 //Updates the products information
 const update = (id, product) => {
