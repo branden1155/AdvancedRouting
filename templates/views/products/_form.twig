@@ -3,16 +3,24 @@
     <input type="hidden" name="id" value="{{ product.id }}" />
     {% endif %}
     <div>
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" minlength="4" required value={{ product.name }} />
+        <label for="title">Name:</label>
+        <input type="text" name="title" id="title" minlength="4" required value={{ product.title }} />
     </div>
     <div>
-        <label for="slug">Shoe Type:</label>
-        <input type="text" name="slug" id="slug" minlength="4" required value={{ product.slug }} />
+        <label for="slug">Slug:</label>
+        <input type="text" name="slug" id="slug" minlength="4" required value={{ variant.slug }} />
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <input type="text" name="description" id="description" minlength="4" required value={{ variant.description }} />
     </div>
     <div>
         <label for="price">Price:</label>
         <input type="text" name="price" id="price" minlength="4" required value={{ product.price }}  />
+    </div>
+    <div>
+        <lavel for="is_published">Is Published:</label>
+        <input type="checkbox" checked="checked"/>
     </div>
     <div>
         <input type="submit" value="Submit"/>
