@@ -1,42 +1,39 @@
-const Products = require('../models/products')
+const { Product } = require('../models')
 
 //Controller for all of the items in the product
-const index = (req, res) => {
-    const products = Products.all()
+const index = async (req, res) => {
+    const products = await Product.findAll()
     res.render('views/products/index', { products })
-    //res.json(products)
 };
 //Controller for the form, this will be done later in the month
-const form = (req, res) => {
-    //res.send('Product.form')
+const form = async (req, res) => {
     if (req.params.id) {
-        const product = Products.find(req.params.id)
+        const product = await Product.findByPk(req.params.id)
         res.render('views/products/edit', { product })
     } else {
         res.render('views/products/create')
     }
 };
 //Controller that finds the item by ID
-const show = (req, res) => {
-    const product = Products.find(req.params.id)
-    //res.json(product)
+const show = async (req, res) => {
+    const product =  await Product.findByPk(req.params.id)
     res.render('views/products/show', { product })
 };
 //Controller that creates an item inside the product list
-const create = (req, res) => {
-    const product = Products.create(req.body)
+const create = async (req, res) => {
+    const product = await Product.create(req.body)
     res.redirect('/products/'+ product.id)
-    //res.json(product)
 };
 //Controller that updates a certain item in product list by id.
-const update = (req, res) => {
-    const product = Products.update(req.params.id, req.body)
+const update = async (req, res) => {
+    const product = await Product.update(req.body, {
+        where: { id: req.params.id }
+    })
     res.redirect('/products/'+ req.params.id)
-    //res.json(product)
 };
 //Controller that removes items by id from the product list.
-const remove = (req, res) => {
-    const products = Products.remove(req.params.id)
+const remove = async (req, res) => {
+    const products = await Product.destroy({where: { id: req.params.id }})
     res.redirect('/products')
 };
 

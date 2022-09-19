@@ -5,12 +5,11 @@
         <h1>All Products:</h2>
         {% for product in products %}
             <li style="list-style: none;">
-            <br>
-                <h2>{{ product.name }}</h1>
-                <h4>Shoe Type: {{product.slug }}</h3>
+                <h4>Shoe Type: {{product.title }}</h3>
                 <h4>Price: ${{product.price }}</h3>
                  <a href="/products/{{ product.id }}/edit">Edit</a>
                  <a href="/products/{{ product.id }}/delete">Delete</a>
+                 <a href="/products/{{ product.id }}">Show</a>
             </li>
         {% endfor %}
     </ul>
