@@ -2,6 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
+    "logging": true,
     "database": "dev_asl",
     "host": "mariadb",
     "dialect": "mysql"
@@ -9,6 +10,7 @@
   "test": {
     "username": "root",
     "password": "root",
+    "logging": true,
     "database": "dev_asl",
     "host": "mariadb",
     "dialect": "mysql"

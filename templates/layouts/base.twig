@@ -4,12 +4,19 @@
     <meta charset="utf=8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ASL Project - Branden</title>
+    {% block stylesheets %}
+		<link rel="stylesheet" type="text/css" href="app.css">
+	{% endblock %}
 </head>
 <body>
     {% include '../partials/_header.twig'%}
     {% block main_content %}
     {% endblock %}
     {% include '../partials/_footer.twig'%}
+
+    {% block scripts %}
+		<script type="text/javascript" src="app.js"></script>
+	{% endblock %}
 
 </body>
 </html>

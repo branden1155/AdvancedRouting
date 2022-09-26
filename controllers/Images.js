@@ -22,15 +22,19 @@ const show = async (req, res) => {
     res.render('views/images/show', { image, variant })
 };
 //Controller that creates an item inside the image list
-const create = async (req, res) => {
+const create = async (req, res, next) => {
     const image = await Image.create(req.body)
+    req.imageId = image.id
+    next()
     res.redirect('/images/'+ image.id)
 };
 //Controller that updates a certain item in image list by id.
-const update = async (req, res) => {
+const update = async (req, res, next) => {
     const image = await Image.update(req.body, {
         where: { id: req.params.id }
     })
+    req.imageId = req.params.id
+    next()
     res.redirect('/images/'+ req.params.id)
 };
 //Controller that removes items by id from the image list.
